@@ -63,7 +63,6 @@ try {
 
   app.get("/user-info", async (req, res) => {
     const token = req.headers.authorization.split(" ")[1];
-    // console.log("from line 66", token);
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await Users.findOne({ email: decoded.email });
     console.log("from line 69", user);
